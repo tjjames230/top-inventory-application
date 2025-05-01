@@ -3,7 +3,7 @@ import express from "express";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-	res.send("all trainers page from router");
+	res.send("all types page from router");
 });
 
 export default router;
