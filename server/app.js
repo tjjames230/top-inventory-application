@@ -14,11 +14,11 @@ app.get("/", (req, res) => {
 	res.send("home page");
 });
 
-app.use("/trainers", trainerRouter);
+app.use("/api/trainers", trainerRouter);
 
-app.use("/pokemon", pokemonRouter);
+app.use("/api/pokemon", pokemonRouter);
 
-app.use("/types", typesRouter);
+app.use("/api/types", typesRouter);
 
 app.listen(PORT, () => {
 	console.log(`listening on port: ${PORT}`);
