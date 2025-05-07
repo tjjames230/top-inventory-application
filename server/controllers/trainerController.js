@@ -1,3 +1,5 @@
+import trainers from "../db_trainers.js";
+
 // get all trainers
 const getAllTrainers = (req, res) => {
 	res.send("all trainers from controller");
@@ -5,9 +7,15 @@ const getAllTrainers = (req, res) => {
 
 // get single trainer
 const getTrainer = (req, res) => {
-	const id = req.params.id;
+	const id = Number(req.params.id);
+	const trainer = trainers.find((trainer) => trainer.id === id);
 
-	res.send(id);
+	if (!trainer) {
+		res.status(404);
+		res.send("no trainer with that id");
+	}
+
+	res.send(trainer.name);
 };
 
 // create new trainer
